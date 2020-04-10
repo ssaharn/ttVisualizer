@@ -275,8 +275,12 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     $messageform.addEventListener("submit", async (e) => {
-        var element = document.getElementById("error");
-        element.parentNode.removeChild(element);
+        try {
+            var element = document.getElementById("error");
+            element.parentNode.removeChild(element);
+        } catch (error) {
+            
+        }
         e.preventDefault();
         $messageFormButton.setAttribute("disabled", "disabled");
         $messageFormButton.innerHTML="Loading..."
