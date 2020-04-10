@@ -81,8 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function addBtnHandler () {
         try {
-            document.getElementById("error").style.display = 'none';
-        } catch {
+            var element = document.getElementById("error");
+            element.parentNode.removeChild(element);
+        } catch (error) {
             
         }
         let title = document.getElementById("course-title").value;
