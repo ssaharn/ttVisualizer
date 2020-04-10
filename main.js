@@ -187,7 +187,12 @@ document.addEventListener("DOMContentLoaded", function () {
     for(let i=0; i<cells.length; i++) {
         if(i>7 && i%8!==0) {
             cells[i].addEventListener("click", function() {
-                document.getElementById("error").style.display = 'none';
+                try {
+                    var element = document.getElementById("error");
+                    element.parentNode.removeChild(element);
+                } catch (error) {
+            
+                }
                 let flag = 0;
                 history.map((obj, objIndex) => {
                     obj.arr.map(index => {
@@ -212,7 +217,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function checkLunch () {
-        document.getElementById("error").style.display = 'none';
+        try {
+            var element = document.getElementById("error");
+            element.parentNode.removeChild(element);
+            } catch (error) {
+            
+            }
         for(let j=1; j<8; j++) {
             let flag = 0;
             for(let i=4; i<=6; i++) {
