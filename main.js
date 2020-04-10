@@ -208,9 +208,103 @@ document.addEventListener("DOMContentLoaded", function () {
         return 1;
     }
 
+    const $messageform = document.getElementById("messageForm");
+    const $messageFormInput = $messageform.querySelector("input");
+    const $messageFormButton = $messageform.querySelector("button");
+
+    $messageform.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("Clicked");
+        const url=`http://127.0.0.1:8000/CourseData?course_number=${e.target.elements.message.value}`
+        fetch(url).then((res) => {
+            console.log("data");
+            const result = res.json().then((a) => {
+                document.getElementById("choices").innerHTML = "";
+
+                var para = document.createElement("p");
+                var node = document.createTextNode(a.Course_Number);
+                para.appendChild(node);
+
+                var element = document.getElementById("choices");
+                element.appendChild(para);
+
+                if (a.lectures.length === 0) {
+                    var para = document.createElement("p");
+                    var node = document.createTextNode("Invalid Course Name");
+                    para.appendChild(node);
+
+                    var element = document.getElementById("choices");
+                    element.appendChild(para);
+                }
+
+                else {
+                    var para = document.createElement("p");
+                    var node = document.createTextNode("Lectures");
+                    para.appendChild(node);
+
+                    var element = document.getElementById("choices");
+                    element.appendChild(para);
+                }
+
+                for (var i in a.lectures) {
+                    var para = document.createElement("p");
+                    var node = document.createTextNode(a.lectures[i]);
+                    para.appendChild(node);
+
+                    var element = document.getElementById("choices");
+                    element.appendChild(para);
+
+                    console.log(a.lectures[i]);
+                }
+
+                if (a.practicals.length) {
+                    var para = document.createElement("p");
+                    var node = document.createTextNode("Practicals");
+                    para.appendChild(node);
+
+                    var element = document.getElementById("choices");
+                    element.appendChild(para);
+                }
+
+                for (var i in a.practicals) {
+                    var para = document.createElement("p");
+                    var node = document.createTextNode(a.practicals[i]);
+                    para.appendChild(node);
+
+                    var element = document.getElementById("choices");
+                    element.appendChild(para);
+                    console.log(a.practicals[i]);
+                }
+
+                if (a.tutorials.length) {
+                    var para = document.createElement("p");
+                    var node = document.createTextNode("Tutorials");
+                    para.appendChild(node);
+
+                    var element = document.getElementById("choices");
+                    element.appendChild(para);
+                }
+
+                for (var i in a.tutorials) {
+                    var para = document.createElement("p");
+                    var node = document.createTextNode(a.tutorials[i]);
+                    para.appendChild(node);
+
+                    var element = document.getElementById("choices");
+                    element.appendChild(para);
+                    console.log(a.tutorials[i]);
+                }
+            });
+        }).catch((e) => {
+            console.log("error");
+        })
+    });
 });
 
 $(document).ready(function() {
     $('#days').select2();
     $('#hours').select2();
 });
+
+
+    
