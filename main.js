@@ -80,12 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addBtn.addEventListener("click", addBtnHandler);
 
     function addBtnHandler () {
-        try {
-            var element = document.getElementById("error");
-            element.parentNode.removeChild(element);
-        } catch (error) {
-            
-        }
+        document.getElementById("error").style.display = 'none';
         let title = document.getElementById("course-title").value;
         console.log(title);
         let classroom = document.getElementById("classroom").value;
@@ -168,12 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
     undoBtn.addEventListener("click", undo);
 
     function undo () {
-        try {
-                    var element = document.getElementById("error");
-                    element.parentNode.removeChild(element);
-                } catch (error) {
-            
-                }
+        document.getElementById("error").style.display = 'none';
         if(history.length >= 1) {
             let lastMove = history[history.length - 1].arr;
             for(let i=0; i<lastMove.length; i++) {
@@ -192,12 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for(let i=0; i<cells.length; i++) {
         if(i>7 && i%8!==0) {
             cells[i].addEventListener("click", function() {
-                try {
-                    var element = document.getElementById("error");
-                    element.parentNode.removeChild(element);
-                } catch (error) {
-            
-                }
+                document.getElementById("error").style.display = 'none';
                 let flag = 0;
                 history.map((obj, objIndex) => {
                     obj.arr.map(index => {
@@ -222,12 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function checkLunch () {
-        try {
-            var element = document.getElementById("error");
-            element.parentNode.removeChild(element);
-            } catch (error) {
-            
-            }
+        document.getElementById("error").style.display = 'none';
         for(let j=1; j<8; j++) {
             let flag = 0;
             for(let i=4; i<=6; i++) {
@@ -248,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const $choicesForm = document.getElementById("choices");
 
     $choicesForm.addEventListener("submit", (e) => {
-        
+        document.getElementById("error").style.display = 'none';
         e.preventDefault();
         const selection = e.target.elements.slot.value;
         console.log(selection);
@@ -295,12 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     $messageform.addEventListener("submit", async (e) => {
-        try {
-            var element = document.getElementById("error");
-            element.parentNode.removeChild(element);
-        } catch (error) {
-            
-        }
+        
         e.preventDefault();
         $messageFormButton.setAttribute("disabled", "disabled");
         $messageFormButton.innerHTML="Loading..."
