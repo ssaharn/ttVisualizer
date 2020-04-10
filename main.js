@@ -168,7 +168,12 @@ document.addEventListener("DOMContentLoaded", function () {
     undoBtn.addEventListener("click", undo);
 
     function undo () {
-        document.getElementById("error").style.display = 'none';
+        try {
+                    var element = document.getElementById("error");
+                    element.parentNode.removeChild(element);
+                } catch (error) {
+            
+                }
         if(history.length >= 1) {
             let lastMove = history[history.length - 1].arr;
             for(let i=0; i<lastMove.length; i++) {
