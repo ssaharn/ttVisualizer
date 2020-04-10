@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $messageform.addEventListener("submit", (e) => {
         e.preventDefault();
         console.log("Clicked");
-        const url=`http://127.0.0.1:8000/CourseData?course_number=${e.target.elements.message.value}`
+        const url=`https://timetablevisualiser-api.herokuapp.com/CourseData?course_number=${e.target.elements.message.value}`
         fetch(url).then((res) => {
             console.log("data");
             const result = res.json().then((a) => {
