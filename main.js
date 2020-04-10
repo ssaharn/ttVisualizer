@@ -80,7 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
     addBtn.addEventListener("click", addBtnHandler);
 
     function addBtnHandler () {
-        document.getElementById("error").style.display = 'none';
+        try {
+            document.getElementById("error").style.display = 'none';
+        } catch {
+            
+        }
         let title = document.getElementById("course-title").value;
         console.log(title);
         let classroom = document.getElementById("classroom").value;
