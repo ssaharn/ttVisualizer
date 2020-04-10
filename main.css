@@ -211,6 +211,10 @@ html, body {
     font-weight: bold;
 }
 
+#choices {
+    text-align: left;
+}
+
 @media all and (max-width: 1000px) {
     .cell {
         width: 100px;
