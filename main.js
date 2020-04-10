@@ -285,10 +285,10 @@ document.addEventListener("DOMContentLoaded", function () {
         var hours = contents[2].split("");
         console.log(hours)
 
-        // if (hours[hours.length - 1] === "0") {
-        //     hours.pop()
-        //     hours[hours.length - 1] ="10"
-        // }
+        if (hours[hours.length - 1] === "0") {
+            hours.pop()
+            hours[hours.length - 1] ="10"
+        }
         globalHours = hours;
         
         document.getElementById("add-btn").click();
